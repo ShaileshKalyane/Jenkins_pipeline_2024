@@ -1,0 +1,30 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                echo "This is build stage"
+                sh "pwd"
+                sh "ls -lrt"
+            }
+        }
+        stage('Test') { 
+            steps {
+               sh '''
+                 echo compile and build the pacjage
+                 sleep 5
+               '''
+            }
+        }
+        stage('Deploy') { 
+            steps {
+               sh """
+                 #!/bin/bash
+                 echo thi is integration testing
+                 sleep 5
+               """
+
+            }
+        }
+    }
+}
